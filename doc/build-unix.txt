@@ -14,6 +14,8 @@ To Build
 --------
 
 cd src/
+cd leveldb
+chmod +x build_detect_platform
 make -f makefile.unix            +ACM- Headless ruble
 
 See readme-qt.rst for instructions on building ruble QT,

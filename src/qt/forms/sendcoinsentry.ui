@@ -90,7 +90,7 @@
      <item>
       <widget class="QValidatedLineEdit" name="payTo">
        <property name="toolTip">
-        <string>The HAL address to send the payment to  (e.g. NfwYhBmGXcFP2Po1NpRUEiK8km2)</string>
+        <string>The ruble address to send the payment to  (e.g. RfwYhBmGXcFP2Po1NpRUEiK8km2)</string>
        </property>
        <property name="maxLength">
         <number>34</number>

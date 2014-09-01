@@ -21,7 +21,7 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 
 windows:LIBS += -lshlwapi
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_date_time 
 
 windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
 windows:LIBS += -lboost_system-mgw49-mt-s-1_55 -lboost_filesystem-mgw49-mt-s-1_55 -lboost_program_options-mgw49-mt-s-1_55 -lboost_thread-mgw49-mt-s-1_55 -lboost_chrono-mgw49-mt-s-1_55

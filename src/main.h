@@ -26,7 +26,7 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
-static const int LAST_POW_BLOCK = 100000;
+static const int LAST_POW_BLOCK = 40000;
 
 static const unsigned int MAX_BLOCK_SIZE = 2000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
@@ -52,8 +52,8 @@ static const int fHaveUPnP = false;
 
 static const uint256 hashGenesisBlock("0x00000c41a9d03c22482ea7c2ca8a6e1fe48d2d6d7a08797e10523d035b88aaed");
 static const uint256 hashGenesisBlockTestNet("0x00000c41a9d03c22482ea7c2ca8a6e1fe48d2d6d7a08797e10523d035b88aaed");
-inline int64_t PastDrift(int64_t nTime)   { return nTime - 3 * 60; } // up to 3 minutes from the past
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 3 * 60; } // up to 3 minutes from the future
+inline int64_t PastDrift(int64_t nTime)   { return nTime - 5 * 60; } // up to 5 minutes from the past
+inline int64_t FutureDrift(int64_t nTime) { return nTime + 5 * 60; } // up to 5 minutes from the future
 
 
 extern CScript COINBASE_FLAGS;

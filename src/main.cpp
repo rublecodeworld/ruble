@@ -43,7 +43,7 @@ unsigned int nStakeMinAge = 60 * 60 * 1; // 1 hours
 unsigned int nStakeMaxAge = -60 * 60 * 24 * 7;           // 30 days
 unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
 
-int nCoinbaseMaturity = 45;
+int nCoinbaseMaturity = 120;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 
@@ -990,19 +990,33 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     {
         nSubsidy = 12.75 * COIN;
     }
-    else if(pindexBest->nHeight < 9000)
+    else if(pindexBest->nHeight < 12000)
     {
-        nSubsidy = 5 * COIN;
+        nSubsidy = 25 * COIN;
     }
-    
-
+    else if(pindexBest->nHeight < 20000)
+    {
+        nSubsidy = 50 * COIN;
+    }
+    else if(pindexBest->nHeight < 21000)
+    {
+        nSubsidy = 100 * COIN;
+    }
+	else if(pindexBest->nHeight < 21500)
+    {
+        nSubsidy = 200 * COIN;
+    }
+	else if(pindexBest->nHeight < 22000)
+    {
+        nSubsidy = 400 * COIN;
+    }
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
 	
     return nSubsidy + nFees;
 }
 
-const int DAILY_BLOCKCOUNT =  1440;
+const int DAILY_BLOCKCOUNT =  2400;
 // miner's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
@@ -1019,7 +1033,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
     return nSubsidy + nFees;
 }
 
-static const int64_t nTargetTimespan = 20 * 60;  // 20 mins
+static const int64_t nTargetTimespan = 10 * 60;  // 10 mins
 //
 // maximum nBits value could possible be required nTime after
 //
